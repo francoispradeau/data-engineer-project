@@ -80,9 +80,9 @@ Note that an additional `verbose` query parameter could be used to get full movi
 Further API would be defined similarly for the other requirements (the deliverables specifically says to not define all routes...)
 
 This microservice can be deployed on an infrastructure within AWS - Kubernetes or Mesos are options, or possibly just an EC2
-instance behind a load balancer (AWS ELB & ASG - Auto-scaling group). 
+instance behind a load balancer (AWS ELB & ASG - Auto-scaling group). Regardless of the final deployment strategy, we need redundant server instances to be able to handle a particular node failure.
 The advantages of using an infrastructure is to be able to put authentication as a separate layer rather than within 
-the service itself. Most of the authentication can also reside in AWS (Cognito/IAM).
+the service itself. Most of the authentication can otherwise reside in AWS (Cognito/IAM).
 Auto-scaling is also a concept that can be implemented easily within an infrastructure by monitoring key metrics from 
-the service (latency, 400s/500s, memory usage, etc...) 
+the service (latency, 400s/500s, memory usage, etc...). They typically also provide built-in redundancy.
  
